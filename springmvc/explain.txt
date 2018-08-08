@@ -1,0 +1,23 @@
+Giải thích luồng chạy của ứng dung:
+
+Khi nhận được link là : http://localhost:8080/springmvc/hello
+
+Trong class ApplicationContextConfig có cấu hình quét tất cả các controller phù hợp nằm trong các package.
+Nó được cấu hình bởi @ComponentScan
+
+Ví dụ:
+@ComponentScan("controller")
+
+"controller" = tên của package declare mà có khai báo controller.
+
+Khi int 1 app, ngoài việc đọc các config trong web.xml. Ta có thể dùng các class để config cho nó.
+Ví dụ: 1 class implements interface: org.springframework.web.WebApplicationInitializer
+(WebApplicationInitializer)
+Interface to be implemented in Servlet 3.0+ environments in order to configure the ServletContext programmatically 
+-- as opposed to (or possibly in conjunction with) the traditional web.xml-based approach.
+
+1 cách để cấu hình servletcontext tự động. Trái với cách cấu hình web.xml tự động
+
+Việc implementation SPA này sẽ được phát hiện tự động bởi SpringServletContainerIntializer, bản thân nó được tự động chạy bởi bất kỳ servlet 
+container nào.
+
