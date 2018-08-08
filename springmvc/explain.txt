@@ -21,3 +21,58 @@ Interface to be implemented in Servlet 3.0+ environments in order to configure t
 Việc implementation SPA này sẽ được phát hiện tự động bởi SpringServletContainerIntializer, bản thân nó được tự động chạy bởi bất kỳ servlet 
 container nào.
 
+--------- Về controller class trong springmvc. 1 controller class hoàn toàn có thể sử dụng request và reponse. Chỉ cần add nó thêm vào parameter 
+truyền vào method được mapping là được.
+
+Ví dụ: 
+  @RequestMapping("/somePath")
+  public String requestResponseExample(HttpServletRequest request,
+          HttpServletResponse reponses, Model model) {
+ 
+      // Todo something here
+ 
+      return "someView";
+  }
+  
+ -> Với cấu hình như này ta hoàn toàn có thể sử dụng request và response.
+ 
+ 2. Redirect trong Controller.
+ 
+ Sử dụng tiếp đầu ngữ "redirect" trong String trả về của phương thức, bạn có thể redirect sang một trang khác. Ví dụ:
+ 
+ @RequestMapping(value = "/redirect", method = RequestMethod.GET)
+ public String authorInfo(Model model) {
+ 
+     // Làm gì đó tại đây ...
+ 
+     return "redirect:/hello";
+ }
+ 
+ Như này có nghĩa là khi có 1 requets gửi đến có dạng: abc/redirect thì nó sẽ redirect tới /hello. Coi như gọi 1 controller khác sử
+ lý cái request này. Nếu ta thay đổi 1 chút
+ 
+  @RequestMapping(value = "*", method = RequestMethod.GET)
+  Như này thì tất cả các request gửi đến với method là GET thì nó sẽ đến method này. Bá vãi.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
