@@ -11,23 +11,25 @@ import java.util.List;
 
 public class FileUtils {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		final File folder = new File(
-				"/media/administrator/01D42D3278CA0FF0/Ubuntu/INES/Document/Document/20_製造/DDL/table");
+        final File folder = new File("G:/Ubuntu/INES/INES_Pilot/SVN/01. Requirements/JP/20_製造/DDL/table");
 
-		List<String> listFilesName = new FileUtils().readingFiles(folder);
+        List<String> listFilesName = new FileUtils().readingFiles(folder);
 
-		String content = new FileUtils().concatContentInAllFiles(listFilesName);
-		
-		try {
-			PrintWriter out = new PrintWriter("filename.txt");
-			
-			out.println(content);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
+        String content = new FileUtils().concatContentInAllFiles(listFilesName);
+
+        PrintWriter out = null;
+        try {
+            out = new PrintWriter("filename.txt");
+
+            out.println(content);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            out.close();
+        }
+    }
 
 	public List<String> readingFiles(final File folder) {
 

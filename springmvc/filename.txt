@@ -1,3 +1,270 @@
+\i cre_m_zdk_info.sql
+\i cre_m_user.sql
+\i cre_m_gyomu.sql
+\i cre_m_user_gyomu_brg.sql
+\i cre_m_dairiten.sql
+\i cre_m_kengen.sql
+\i cre_m_access_seigyo.sql
+\i cre_m_gamen.sql
+\i cre_m_action.sql
+\i cre_m_button.sql
+\i cre_t_task_kanri.sql
+\i cre_m_todofuken.sql
+\i cre_m_bank.sql
+\i cre_m_shiten.sql
+\i cre_m_shibu.sql
+\i cre_m_addr.sql
+\i cre_t_taio_rireki_eigyo.sql
+\i cre_t_taio_rireki_eigyo_shusei.sql
+\i cre_t_taio_rireki_soncho.sql
+\i cre_t_taio_rireki_soncho_shusei.sql
+\i cre_m_yakkan.sql
+\i cre_m_tokyu.sql
+\i cre_m_koshingo_tokyu.sql
+\i cre_m_plan.sql
+\i cre_m_tankiritsu.sql
+\i cre_m_iryo_kyufu_kin.sql
+\i cre_m_koishogai_tokyu.sql
+\i cre_m_teikeibun.sql
+\i cre_m_koza_hikiotoshi_waribiki.sql
+\i cre_t_batch_shori_jokyo.sql
+\i cre_t_batch_shori_error_info.sql
+\i cre_m_task_jido_toroku.sql
+\i cre_m_task_jido_toroku_atesaki.sql
+\i cre_m_cd.sql
+\i cre_m_calendar.sql
+\i cre_m_saiban.sql
+\i cre_t_kensaku_joken.sql
+\i cre_t_kumiaiin.sql
+\i cre_t_kumiaiin_rireki.sql
+\i cre_t_keiyaku.sql
+\i cre_t_keiyaku_rireki.sql
+\i cre_t_songairitsu_santei_kakekin.sql
+\i cre_t_songairitsu_santei_jiko.sql
+\i cre_t_songairitsu_santei_tsucho.sql
+\i cre_t_keiyaku_plan.sql
+\i cre_t_zuihan_sha_ido_rireki.sql
+\i cre_t_zuihan_sha_hosho_info.sql
+\i cre_t_untenshu_ido_rireki.sql
+\i cre_t_untenshu_hosho_info.sql
+\i cre_t_kumiaiin_koza.sql
+\i cre_t_gessho_keiyaku.sql
+\i cre_t_hendo_gaku_meisai.sql
+\i cre_t_kakekin_seikyu.sql
+\i cre_t_kakekin_seikyu_meisai.sql
+\i cre_t_kakekin_nyushukkin.sql
+\i cre_t_kakekin_nyushukkin_meisai.sql
+\i cre_t_shusshikin_seikyu.sql
+\i cre_t_shusshikin_nyushukkin.sql
+\i cre_t_haito_kin.sql
+\i cre_m_hyoban_chimei.sql
+\i cre_t_moshikomi.sql
+\i cre_t_bf_kumiaiin.sql
+\i cre_t_bf_kumiaiin_rireki.sql
+\i cre_t_bf_keiyaku.sql
+\i cre_t_bf_keiyaku_rireki.sql
+\i cre_t_bf_keiyaku_plan.sql
+\i cre_t_bf_keiyaku_plan_rireki.sql
+\i cre_t_bf_kaiyaku.sql
+\i cre_t_bf_zuihansha_ido_rireki.sql
+\i cre_t_bf_untenshu_ido_rireki.sql
+\i cre_t_bf_kumiaiin_koza.sql
+\i cre_t_kensaku_kumiaiin.sql
+\i cre_w_jiki_tokyu_shisan_kakekin.sql
+\i cre_w_jiki_tokyu_shisan_kyosaikin.sql
+\i cre_t_kumiaiin_azukari_kin.sql
+\i cre_t_jiko_kihon.sql
+\i cre_t_jiko_shosai.sql
+\i cre_t_satei_taijin.sql
+\i cre_t_shiharai_uchiwake_meisai.sql
+\i cre_t_satei_taibutsu_kyaku.sql
+\i cre_t_satei_tosho_kosho.sql
+\i cre_t_jiko_seikyu.sql
+\i cre_t_bikin.sql
+\i cre_t_jiko_shiharai.sql
+\i cre_t_kankeisaki.sql
+\i cre_t_daisha.sql
+\i cre_m_shokai_bikin.sql
+\i cre_t_jiko_shosai_kankeisaki.sql
+\i cre_m_kibozoshuritumaster.sql
+\i cre_m_songairitumaster.sql
+\i cre_m_mksetumeiritumaster.sql
+\i cre_m_nikakekinshunoritumaster.sql
+\i cre_m_skkokairitumaster.sql
+\i cre_t_dairitenpointinfo.sql
+\i cre_t_kibozoshuritupoint.sql
+\i cre_t_songairitupoint.sql
+\i cre_t_mksetumeiritupoint.sql
+\i cre_t_nikakekinshunoritupoint.sql
+\i cre_t_skkokairitupoint.sql
+\i cre_t_kibozoshurituwork.sql
+\i cre_t_msritubunshiwork.sql
+\i cre_t_songairitubunshiwork.sql
+\i cre_t_songairitubunbowork.sql
+\i cre_t_mksetumeirituwork.sql
+\i cre_t_nikakekinshunorituwork.sql
+\i cre_t_skkokairituwork.sql
+\i cre_m_keisatsuhappyodata.sql
+
+drop table if exists m_access_seigyo;
+create table m_access_seigyo (
+id serial not null,
+kengen_kbn char(1) not null,
+access_kano_gamen_id varchar(4) not null,
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id ),
+unique ( kengen_kbn, access_kano_gamen_id )
+);
+
+drop table if exists m_action;
+create table m_action (
+id serial not null,
+url char(100) not null,
+senisaki_gamen_id varchar(4),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id ),
+unique ( url )
+);
+
+drop table if exists m_addr;
+create table m_addr (
+id serial not null,
+zip_code char(7) not null,
+zip_code_u3 char(3) not null,
+zip_code_d4 char(4) not null,
+todofuken_cd char(2) not null,
+shikuchoson_cd char(3) not null,
+addr_1 varchar(100) not null,
+addr_2 varchar(100) not null,
+addr_3 varchar(100),
+addr varchar(300) not null,
+addr_1_kana varchar(100) not null,
+addr_2_kana varchar(100) not null,
+addr_3_kana varchar(100),
+addr_kana varchar(300) not null,
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id ),
+unique ( zip_code )
+);
+
+drop table if exists m_bank;
+create table m_bank (
+id serial not null,
+bank_cd char(4) not null,
+bank_name varchar(40),
+bank_name_kana varchar(40),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id ),
+unique ( bank_cd )
+);
+
+drop table if exists m_button;
+create table m_button (
+id serial not null,
+button_id varchar(4) not null,
+button_name varchar(20),
+url varchar(100),
+gamen_id char(4),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id ),
+unique ( button_id )
+);
+
+drop table if exists m_calendar;
+create table m_calendar (
+id serial not null,
+hizuke timestamp not null,
+day char(2),
+kyujitsu_flg char(1),
+shukujitsu_name varchar(20),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id ),
+unique ( hizuke )
+);
+
+drop table if exists m_cd;
+create table m_cd (
+id serial not null,
+cd_shubetsu varchar(50) not null,
+cd_shubetsu_name varchar(20),
+hyoji_jun numeric(4),
+cd varchar(5) not null,
+cd_name varchar(50),
+tekiyo_start_ymd timestamp,
+tekiyo_end_ymd timestamp,
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id ),
+unique ( cd_shubetsu, cd )
+);
+
+drop table if exists m_dairiten;
+create table m_dairiten (
+id serial not null,
+dairiten_cd char(4) not null,
+dairiten_name varchar(100),
+dairiten_kana varchar(100),
+addr_1 varchar(100),
+addr_2 varchar(100),
+tel_no_1 varchar(5),
+tel_no_2 varchar(4),
+tel_no_3 varchar(4),
+fax_no_1 varchar(5),
+fax_no_2 varchar(4),
+fax_no_3 varchar(4),
+tanto_name varchar(100),
+tanto_name_kana varchar(100),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id ),
+unique ( dairiten_cd )
+);
+
+drop table if exists m_gamen;
+create table m_gamen (
+id serial not null,
+gamen_id char(4) not null,
+gamen_name varchar(20),
+fukkiji_url char(100),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id ),
+unique ( gamen_id )
+);
+
 drop table if exists m_gyomu;
 create table m_gyomu (
 id serial not null,
@@ -264,6 +531,26 @@ primary key ( id ),
 unique ( bank_cd, shiten_cd )
 );
 
+drop table if exists m_shokai_bikin;
+create table m_shokai_bikin (
+id serial not null,
+kyosai_kbn char(1) not null,
+shokai_bikin_seq int not null,
+shokai_bikin_bui_bukken char(2),
+shokai_bikin_shojo char(2),
+nyuin_umu char(1),
+shokugyo_umu char(1),
+shokai_bikin numeric(9),
+bui_bukken_name varchar(100),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id ),
+unique ( kyosai_kbn, shokai_bikin_seq )
+);
+
 drop table if exists m_skkokairitumaster;
 create table m_skkokairitumaster (
 id serial not null,
@@ -489,256 +776,20 @@ primary key ( id ),
 unique ( jimusho_cd )
 );
 
-\i cre_m_zdk_info.sql
-\i cre_m_user.sql
-\i cre_m_gyomu.sql
-\i cre_m_user_gyomu_brg.sql
-\i cre_m_dairiten.sql
-\i cre_m_kengen.sql
-\i cre_m_access_seigyo.sql
-\i cre_m_gamen.sql
-\i cre_m_action.sql
-\i cre_m_button.sql
-\i cre_t_task_kanri.sql
-\i cre_m_todofuken.sql
-\i cre_m_bank.sql
-\i cre_m_shiten.sql
-\i cre_m_shibu.sql
-\i cre_m_addr.sql
-\i cre_t_taio_rireki_eigyo.sql
-\i cre_t_taio_rireki_eigyo_shusei.sql
-\i cre_t_taio_rireki_soncho.sql
-\i cre_t_taio_rireki_soncho_shusei.sql
-\i cre_m_yakkan.sql
-\i cre_m_tokyu.sql
-\i cre_m_koshingo_tokyu.sql
-\i cre_m_plan.sql
-\i cre_m_tankiritsu.sql
-\i cre_m_iryo_kyufu_kin.sql
-\i cre_m_koishogai_tokyu.sql
-\i cre_m_teikeibun.sql
-\i cre_m_koza_hikiotoshi_waribiki.sql
-\i cre_t_batch_shori_jokyo.sql
-\i cre_t_batch_shori_error_info.sql
-\i cre_m_task_jido_toroku.sql
-\i cre_m_task_jido_toroku_atesaki.sql
-\i cre_m_cd.sql
-\i cre_m_calendar.sql
-\i cre_m_saiban.sql
-\i cre_t_kensaku_joken.sql
-\i cre_t_kumiaiin.sql
-\i cre_t_kumiaiin_rireki.sql
-\i cre_t_keiyaku.sql
-\i cre_t_keiyaku_rireki.sql
-\i cre_t_songairitsu_santei_kakekin.sql
-\i cre_t_songairitsu_santei_jiko.sql
-\i cre_t_songairitsu_santei_tsucho.sql
-\i cre_t_keiyaku_plan.sql
-\i cre_t_zuihan_sha_ido_rireki.sql
-\i cre_t_zuihan_sha_hosho_info.sql
-\i cre_t_untenshu_ido_rireki.sql
-\i cre_t_untenshu_hosho_info.sql
-\i cre_t_kumiaiin_koza.sql
-\i cre_t_gessho_keiyaku.sql
-\i cre_t_hendo_gaku_meisai.sql
-\i cre_t_kakekin_seikyu.sql
-\i cre_t_kakekin_seikyu_meisai.sql
-\i cre_t_kakekin_nyushukkin.sql
-\i cre_t_kakekin_nyushukkin_meisai.sql
-\i cre_t_shusshikin_seikyu.sql
-\i cre_t_shusshikin_nyushukkin.sql
-\i cre_t_haito_kin.sql
-\i cre_m_hyoban_chimei.sql
-\i cre_t_moshikomi.sql
-\i cre_t_bf_kumiaiin.sql
-\i cre_t_bf_kumiaiin_rireki.sql
-\i cre_t_bf_keiyaku.sql
-\i cre_t_bf_keiyaku_rireki.sql
-\i cre_t_bf_keiyaku_plan.sql
-\i cre_t_bf_keiyaku_plan_rireki.sql
-\i cre_t_bf_kaiyaku.sql
-\i cre_t_bf_zuihansha_ido_rireki.sql
-\i cre_t_bf_untenshu_ido_rireki.sql
-\i cre_t_bf_kumiaiin_koza.sql
-\i cre_t_kensaku_kumiaiin.sql
-\i cre_w_jiki_tokyu_shisan_kakekin.sql
-\i cre_w_jiki_tokyu_shisan_kyosaikin.sql
-\i cre_t_kumiaiin_azukari_kin.sql
-\i cre_t_jiko_kihon.sql
-\i cre_t_jiko_shosai.sql
-\i cre_t_satei_taijin.sql
-\i cre_t_shiharai_uchiwake_meisai.sql
-\i cre_t_satei_taibutsu_kyaku.sql
-\i cre_t_satei_tosho_kosho.sql
-\i cre_t_jiko_seikyu.sql
-\i cre_t_bikin.sql
-\i cre_t_jiko_shiharai.sql
-\i cre_t_kankeisaki.sql
-\i cre_t_daisha.sql
-\i cre_m_shokai_bikin.sql
-\i cre_t_jiko_shosai_kankeisaki.sql
-\i cre_m_kibozoshuritumaster.sql
-\i cre_m_songairitumaster.sql
-\i cre_m_mksetumeiritumaster.sql
-\i cre_m_nikakekinshunoritumaster.sql
-\i cre_m_skkokairitumaster.sql
-\i cre_t_dairitenpointinfo.sql
-\i cre_t_kibozoshuritupoint.sql
-\i cre_t_songairitupoint.sql
-\i cre_t_mksetumeiritupoint.sql
-\i cre_t_nikakekinshunoritupoint.sql
-\i cre_t_skkokairitupoint.sql
-\i cre_t_kibozoshurituwork.sql
-\i cre_t_msritubunshiwork.sql
-\i cre_t_songairitubunshiwork.sql
-\i cre_t_songairitubunbowork.sql
-\i cre_t_mksetumeirituwork.sql
-\i cre_t_nikakekinshunorituwork.sql
-\i cre_t_skkokairituwork.sql
-\i cre_m_keisatsuhappyodata.sql
-
-drop table if exists m_access_seigyo;
-create table m_access_seigyo (
+drop table if exists t_batch_shori_error_info;
+create table t_batch_shori_error_info (
 id serial not null,
-kengen_kbn char(1) not null,
-access_kano_gamen_id varchar(4) not null,
+shori_id int not null,
+error_seq int not null,
+error_cd char(8),
+error_message varchar(200),
 toroku_user_id varchar(8),
 toroku_date_time timestamp,
 henko_user_id varchar(8),
 henko_date_time timestamp,
 sakujo_flg char(1),
 primary key ( id ),
-unique ( kengen_kbn, access_kano_gamen_id )
-);
-
-drop table if exists m_action;
-create table m_action (
-id serial not null,
-url char(100) not null,
-senisaki_gamen_id varchar(4),
-toroku_user_id varchar(8),
-toroku_date_time timestamp,
-henko_user_id varchar(8),
-henko_date_time timestamp,
-sakujo_flg char(1),
-primary key ( id ),
-unique ( url )
-);
-
-drop table if exists m_addr;
-create table m_addr (
-id serial not null,
-zip_code char(7) not null,
-zip_code_u3 char(3) not null,
-zip_code_d4 char(4) not null,
-todofuken_cd char(2) not null,
-shikuchoson_cd char(3) not null,
-addr_1 varchar(100) not null,
-addr_2 varchar(100) not null,
-addr_3 varchar(100),
-addr varchar(300) not null,
-addr_1_kana varchar(100) not null,
-addr_2_kana varchar(100) not null,
-addr_3_kana varchar(100),
-addr_kana varchar(300) not null,
-toroku_user_id varchar(8),
-toroku_date_time timestamp,
-henko_user_id varchar(8),
-henko_date_time timestamp,
-sakujo_flg char(1),
-primary key ( id ),
-unique ( zip_code )
-);
-
-drop table if exists m_bank;
-create table m_bank (
-id serial not null,
-bank_cd char(4) not null,
-bank_name varchar(40),
-bank_name_kana varchar(40),
-toroku_user_id varchar(8),
-toroku_date_time timestamp,
-henko_user_id varchar(8),
-henko_date_time timestamp,
-sakujo_flg char(1),
-primary key ( id ),
-unique ( bank_cd )
-);
-
-drop table if exists m_button;
-create table m_button (
-id serial not null,
-button_id varchar(4) not null,
-button_name varchar(20),
-url varchar(100),
-gamen_id char(4),
-toroku_user_id varchar(8),
-toroku_date_time timestamp,
-henko_user_id varchar(8),
-henko_date_time timestamp,
-sakujo_flg char(1),
-primary key ( id ),
-unique ( button_id )
-);
-
-drop table if exists m_calendar;
-create table m_calendar (
-id serial not null,
-hizuke timestamp not null,
-day char(2),
-kyujitsu_flg char(1),
-shukujitsu_name varchar(20),
-toroku_user_id varchar(8),
-toroku_date_time timestamp,
-henko_user_id varchar(8),
-henko_date_time timestamp,
-sakujo_flg char(1),
-primary key ( id ),
-unique ( hizuke )
-);
-
-drop table if exists m_cd;
-create table m_cd (
-id serial not null,
-cd_shubetsu varchar(50) not null,
-cd_shubetsu_name varchar(20),
-hyoji_jun numeric(4),
-cd varchar(5) not null,
-cd_name varchar(50),
-tekiyo_start_ymd timestamp,
-tekiyo_end_ymd timestamp,
-toroku_user_id varchar(8),
-toroku_date_time timestamp,
-henko_user_id varchar(8),
-henko_date_time timestamp,
-sakujo_flg char(1),
-primary key ( id ),
-unique ( cd_shubetsu, cd )
-);
-
-drop table if exists m_dairiten;
-create table m_dairiten (
-id serial not null,
-dairiten_cd char(4) not null,
-dairiten_name varchar(100),
-dairiten_kana varchar(100),
-addr_1 varchar(100),
-addr_2 varchar(100),
-tel_no_1 varchar(5),
-tel_no_2 varchar(4),
-tel_no_3 varchar(4),
-fax_no_1 varchar(5),
-fax_no_2 varchar(4),
-fax_no_3 varchar(4),
-tanto_name varchar(100),
-tanto_name_kana varchar(100),
-toroku_user_id varchar(8),
-toroku_date_time timestamp,
-henko_user_id varchar(8),
-henko_date_time timestamp,
-sakujo_flg char(1),
-primary key ( id ),
-unique ( dairiten_cd )
+unique ( shori_id, error_seq )
 );
 
 drop table if exists t_batch_shori_jokyo;
@@ -1481,57 +1532,6 @@ primary key ( id ),
 unique ( jiko_no, kyosai_kbn, jiko_no_eda_no, seq )
 );
 
-drop table if exists m_gamen;
-create table m_gamen (
-id serial not null,
-gamen_id char(4) not null,
-gamen_name varchar(20),
-fukkiji_url char(100),
-toroku_user_id varchar(8),
-toroku_date_time timestamp,
-henko_user_id varchar(8),
-henko_date_time timestamp,
-sakujo_flg char(1),
-primary key ( id ),
-unique ( gamen_id )
-);
-
-drop table if exists m_shokai_bikin;
-create table m_shokai_bikin (
-id serial not null,
-kyosai_kbn char(1) not null,
-shokai_bikin_seq int not null,
-shokai_bikin_bui_bukken char(2),
-shokai_bikin_shojo char(2),
-nyuin_umu char(1),
-shokugyo_umu char(1),
-shokai_bikin numeric(9),
-bui_bukken_name varchar(100),
-toroku_user_id varchar(8),
-toroku_date_time timestamp,
-henko_user_id varchar(8),
-henko_date_time timestamp,
-sakujo_flg char(1),
-primary key ( id ),
-unique ( kyosai_kbn, shokai_bikin_seq )
-);
-
-drop table if exists t_batch_shori_error_info;
-create table t_batch_shori_error_info (
-id serial not null,
-shori_id int not null,
-error_seq int not null,
-error_cd char(8),
-error_message varchar(200),
-toroku_user_id varchar(8),
-toroku_date_time timestamp,
-henko_user_id varchar(8),
-henko_date_time timestamp,
-sakujo_flg char(1),
-primary key ( id ),
-unique ( shori_id, error_seq )
-);
-
 drop table if exists t_gessho_keiyaku;
 create table t_gessho_keiyaku (
 id serial not null,
@@ -1556,168 +1556,6 @@ henko_user_id varchar(8),
 henko_date_time timestamp,
 sakujo_flg char(1),
 primary key ( id )
-);
-
-drop table if exists t_keiyaku_rireki;
-create table t_keiyaku_rireki (
-id serial not null,
-kumiaiin_id int,
-kumiaiin_no char(6),
-keiyaku_id int,
-keiyaku_no char(9),
-keiyaku_status char(1),
-keiyaku_moshikomi_ymd timestamp,
-keiyaku_shiki_date_time timestamp,
-keiyaku_manki_date_time timestamp,
-yakkan_cd varchar(9),
-tokyu_shubetsu_cd char(1),
-tokyu_cd char(2),
-kaiyaku_uketsuke_ymd timestamp,
-kaiyaku_yotei_ymd timestamp,
-kaiyaku_ymd_seisan timestamp,
-kaiyaku_ymd_hosho timestamp,
-kaiyaku_jiyu char(2),
-kaiyaku_keijo_date_time timestamp,
-kaiyaku_keijo_sha_id varchar(8),
-kaiyaku_seisa_date_time timestamp,
-kaiyaku_seisa_sha_id varchar(8),
-chudan_dattai_kanren_kaijo_ymd timestamp,
-chudan_dattai_kanren_dattai_todoke_sofu_ymd timestamp,
-chudan_dattai_kanren_dattai_todoke_juryo_ymd timestamp,
-plan_seigen_flg char(1),
-shosho_sofu_ymd timestamp,
-keijo_date_time timestamp,
-keijo_sha_id varchar(8),
-seisa_date_time timestamp,
-seisa_sha_id varchar(8),
-toroku_user_id varchar(8),
-toroku_date_time timestamp,
-henko_user_id varchar(8),
-henko_date_time timestamp,
-sakujo_flg char(1),
-primary key ( id )
-);
-
-drop table if exists t_satei_taibutsu_kyaku;
-create table t_satei_taibutsu_kyaku (
-id serial not null,
-jiko_no char(10) not null,
-kyosai_kbn char(1) not null,
-jiko_no_eda_no numeric(2) not null,
-jiko_shosai_id int,
-kantei_umu char(1),
-kantei_sha varchar(100),
-chosa_uketsuke_ymd timestamp,
-chosa_ymd timestamp,
-sokuho_ymd timestamp,
-sai_tachiai_ymd timestamp,
-teishutsu_ymd timestamp,
-kyotei_ymd timestamp,
-chosa_saki_kankeisaki_id int,
-hannyu_ymd timestamp,
-hannyu_hoho char(1),
-kuruma_name varchar(100),
-keijo varchar(100),
-katashiki varchar(100),
-engine_katashiki varchar(100),
-shodo_toroku char(6),
-seizo_year char(4),
-shaken_manryo_ymd timestamp,
-shatai_no varchar(48),
-shiyo_sha varchar(100),
-keishiki_shitei varchar(100),
-ruibetsu_kbn char(4),
-soko_kyori numeric(10),
-shiyo varchar(100),
-color_no varchar(10),
-tomaku_shurui char(2),
-tokushu_coat char(1),
-tokusohin varchar(100),
-chakuryoku_takasa_1_1 numeric(5),
-chakuryoku_takasa_1_2 numeric(5),
-chakuryoku_takasa_2_1 numeric(5),
-chakuryoku_takasa_2_2 numeric(5),
-seigosei_jiko_hokoku char(1),
-seigosei_fuchakushoku varchar(100),
-seigosei_fuchakushoku_bui varchar(100),
-seigosei_aitebutsu_umu char(1),
-seigosei_fuchakubutsu varchar(100),
-seigosei_fuchakubutsu_bui varchar(100),
-seigosei_sogo_handan char(1),
-seigosei_hassho_jotai char(2),
-seigosei_betsu_jiko_bui char(1),
-suisatsu_sareru_aitebutsu varchar(100),
-suisoku_jiko_taiyou varchar(100),
-sharyo_shototsu_chokuzen varchar(100),
-shatai_jika_gaku numeric(9),
-seigosei_tokki_jiko varchar(2000),
-buhin_zairyohi_mitsumori_gaku numeric(9),
-buhin_zairyohi_kyotei_gaku numeric(9),
-kochin_temachin_mitsumori_gaku numeric(9),
-kochin_temachin_kyotei_gaku numeric(9),
-wrecker_mitsumori_gaku numeric(9),
-wrecker_kyotei_gaku numeric(9),
-daisha_kyusha_mitsumori_gaku numeric(9),
-daisha_kyusha_kyotei_gaku numeric(9),
-tax_mitsumori_gaku numeric(9),
-tax_kyotei_gaku numeric(9),
-scrap_mitsumori_gaku numeric(9),
-scrap_kyotei_gaku numeric(9),
-gokei_mitsumori_gaku numeric(9),
-gokei_kyotei_gaku numeric(9),
-kyotei_sha varchar(100),
-gaisan_shurihi numeric(9),
-zenson_mitsumori_gaku numeric(9),
-jika_gaku numeric(9),
-jika_gaku_sanshutsu_konkyo varchar(200),
-songai_kbn char(1),
-sharyo_chokabarai_umu char(1),
-tosohi numeric(9),
-taio_tanka numeric(9),
-shuri_date_su numeric(5),
-input_hoko_1 varchar(100),
-input_hoko_2 varchar(100),
-input_hoko_comment_1 varchar(100),
-input_hoko_comment_2 varchar(100),
-daisha_kyusha_kbn char(1),
-tanka numeric(9),
-date_su numeric(5),
-so_gaku numeric(9),
-jisha_kashitsu numeric(3),
-kashitsu_kyotei_ymd timestamp,
-songai_gaku_kei numeric(9),
-songai_baisho_gaku numeric(9),
-mensekikin numeric(9),
-shiharai_kyosaikin numeric(9),
-biko varchar(200),
-toroku_user_id varchar(8),
-toroku_date_time timestamp,
-henko_user_id varchar(8),
-henko_date_time timestamp,
-sakujo_flg char(1),
-primary key ( id ),
-unique ( jiko_no, kyosai_kbn, jiko_no_eda_no )
-);
-
-drop table if exists t_taio_rireki_eigyo_shusei;
-create table t_taio_rireki_eigyo_shusei (
-id serial not null,
-taio_rireki_shusei_seq int not null,
-taio_rireki_id int,
-kumiaiin_id int,
-bf_kumiaiin_id int,
-kumiaiin_no char(6),
-taio_date_time timestamp,
-taio_kbn char(2),
-dairiten_etsuran_flg char(1),
-taio_naiyo varchar(2000),
-toroku_user_id varchar(8),
-toroku_date_time timestamp,
-henko_user_id varchar(8),
-henko_date_time timestamp,
-sakujo_flg char(1),
-primary key ( id ),
-unique ( taio_rireki_shusei_seq )
 );
 
 drop table if exists t_haito_kin;
@@ -2236,6 +2074,46 @@ sakujo_flg char(1),
 primary key ( id )
 );
 
+drop table if exists t_keiyaku_rireki;
+create table t_keiyaku_rireki (
+id serial not null,
+kumiaiin_id int,
+kumiaiin_no char(6),
+keiyaku_id int,
+keiyaku_no char(9),
+keiyaku_status char(1),
+keiyaku_moshikomi_ymd timestamp,
+keiyaku_shiki_date_time timestamp,
+keiyaku_manki_date_time timestamp,
+yakkan_cd varchar(9),
+tokyu_shubetsu_cd char(1),
+tokyu_cd char(2),
+kaiyaku_uketsuke_ymd timestamp,
+kaiyaku_yotei_ymd timestamp,
+kaiyaku_ymd_seisan timestamp,
+kaiyaku_ymd_hosho timestamp,
+kaiyaku_jiyu char(2),
+kaiyaku_keijo_date_time timestamp,
+kaiyaku_keijo_sha_id varchar(8),
+kaiyaku_seisa_date_time timestamp,
+kaiyaku_seisa_sha_id varchar(8),
+chudan_dattai_kanren_kaijo_ymd timestamp,
+chudan_dattai_kanren_dattai_todoke_sofu_ymd timestamp,
+chudan_dattai_kanren_dattai_todoke_juryo_ymd timestamp,
+plan_seigen_flg char(1),
+shosho_sofu_ymd timestamp,
+keijo_date_time timestamp,
+keijo_sha_id varchar(8),
+seisa_date_time timestamp,
+seisa_sha_id varchar(8),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id )
+);
+
 drop table if exists t_kensaku_joken;
 create table t_kensaku_joken (
 login_user_id varchar(8) not null,
@@ -2740,6 +2618,107 @@ sakujo_flg char(1),
 primary key ( id )
 );
 
+drop table if exists t_satei_taibutsu_kyaku;
+create table t_satei_taibutsu_kyaku (
+id serial not null,
+jiko_no char(10) not null,
+kyosai_kbn char(1) not null,
+jiko_no_eda_no numeric(2) not null,
+jiko_shosai_id int,
+kantei_umu char(1),
+kantei_sha varchar(100),
+chosa_uketsuke_ymd timestamp,
+chosa_ymd timestamp,
+sokuho_ymd timestamp,
+sai_tachiai_ymd timestamp,
+teishutsu_ymd timestamp,
+kyotei_ymd timestamp,
+chosa_saki_kankeisaki_id int,
+hannyu_ymd timestamp,
+hannyu_hoho char(1),
+kuruma_name varchar(100),
+keijo varchar(100),
+katashiki varchar(100),
+engine_katashiki varchar(100),
+shodo_toroku char(6),
+seizo_year char(4),
+shaken_manryo_ymd timestamp,
+shatai_no varchar(48),
+shiyo_sha varchar(100),
+keishiki_shitei varchar(100),
+ruibetsu_kbn char(4),
+soko_kyori numeric(10),
+shiyo varchar(100),
+color_no varchar(10),
+tomaku_shurui char(2),
+tokushu_coat char(1),
+tokusohin varchar(100),
+chakuryoku_takasa_1_1 numeric(5),
+chakuryoku_takasa_1_2 numeric(5),
+chakuryoku_takasa_2_1 numeric(5),
+chakuryoku_takasa_2_2 numeric(5),
+seigosei_jiko_hokoku char(1),
+seigosei_fuchakushoku varchar(100),
+seigosei_fuchakushoku_bui varchar(100),
+seigosei_aitebutsu_umu char(1),
+seigosei_fuchakubutsu varchar(100),
+seigosei_fuchakubutsu_bui varchar(100),
+seigosei_sogo_handan char(1),
+seigosei_hassho_jotai char(2),
+seigosei_betsu_jiko_bui char(1),
+suisatsu_sareru_aitebutsu varchar(100),
+suisoku_jiko_taiyou varchar(100),
+sharyo_shototsu_chokuzen varchar(100),
+shatai_jika_gaku numeric(9),
+seigosei_tokki_jiko varchar(2000),
+buhin_zairyohi_mitsumori_gaku numeric(9),
+buhin_zairyohi_kyotei_gaku numeric(9),
+kochin_temachin_mitsumori_gaku numeric(9),
+kochin_temachin_kyotei_gaku numeric(9),
+wrecker_mitsumori_gaku numeric(9),
+wrecker_kyotei_gaku numeric(9),
+daisha_kyusha_mitsumori_gaku numeric(9),
+daisha_kyusha_kyotei_gaku numeric(9),
+tax_mitsumori_gaku numeric(9),
+tax_kyotei_gaku numeric(9),
+scrap_mitsumori_gaku numeric(9),
+scrap_kyotei_gaku numeric(9),
+gokei_mitsumori_gaku numeric(9),
+gokei_kyotei_gaku numeric(9),
+kyotei_sha varchar(100),
+gaisan_shurihi numeric(9),
+zenson_mitsumori_gaku numeric(9),
+jika_gaku numeric(9),
+jika_gaku_sanshutsu_konkyo varchar(200),
+songai_kbn char(1),
+sharyo_chokabarai_umu char(1),
+tosohi numeric(9),
+taio_tanka numeric(9),
+shuri_date_su numeric(5),
+input_hoko_1 varchar(100),
+input_hoko_2 varchar(100),
+input_hoko_comment_1 varchar(100),
+input_hoko_comment_2 varchar(100),
+daisha_kyusha_kbn char(1),
+tanka numeric(9),
+date_su numeric(5),
+so_gaku numeric(9),
+jisha_kashitsu numeric(3),
+kashitsu_kyotei_ymd timestamp,
+songai_gaku_kei numeric(9),
+songai_baisho_gaku numeric(9),
+mensekikin numeric(9),
+shiharai_kyosaikin numeric(9),
+biko varchar(200),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id ),
+unique ( jiko_no, kyosai_kbn, jiko_no_eda_no )
+);
+
 drop table if exists t_satei_taijin;
 create table t_satei_taijin (
 id serial not null,
@@ -2845,4 +2824,519 @@ shiharai_kaime numeric(5) not null,
 shiharai_uchiwake_seq int not null,
 satei_naiyo_taijin_id int,
 kankeisaki_id int,
-songai_shikib
+songai_shikibetsu_kbn char(1),
+songai_kbn char(2),
+taisho_kikan_start_ymd timestamp,
+taisho_kikan_end_ymd timestamp,
+nyuin_date_su numeric(5),
+tsuin_date_su numeric(5),
+seikyu_gaku numeric(9),
+nintei_gaku numeric(9),
+kango_kbn char(1),
+isharyo_kbn char(1),
+kotsu_shudan char(1),
+etc_songai_gaku numeric(9),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id ),
+unique ( jiko_no, kyosai_kbn, jiko_no_eda_no, shiharai_kaime, shiharai_uchiwake_seq )
+);
+
+drop table if exists t_shusshikin_nyushukkin;
+create table t_shusshikin_nyushukkin (
+id serial not null,
+kumiaiin_id int,
+kumiaiin_no char(6),
+shusshikin_seikyu_id int,
+moshikomi_id int,
+bf_kumiaiin_id int,
+uketsuke_no int,
+nyushukkin_kbn char(1),
+nyushukkin_ymd timestamp,
+nyushukkin_gaku numeric(9),
+nyushukkin_toroku_ymd timestamp,
+nyushukkin_henko_ymd timestamp,
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id )
+);
+
+drop table if exists t_shusshikin_seikyu;
+create table t_shusshikin_seikyu (
+id serial not null,
+kumiaiin_id int,
+kumiaiin_no char(6),
+shusshikin_seikyu_kbn char(1),
+moshikomi_id int,
+bf_kumiaiin_id int,
+uketsuke_no int,
+seikyu_ymd timestamp,
+seikyu_gaku numeric(9),
+henkin_yotei_ymd timestamp,
+seikyu_henkin_kbn char(1),
+seikyu_status char(1),
+nyukin_jokyo char(1),
+henkin_jokyo char(1),
+seikyujiten_hoyu_daisu numeric(5),
+seikyuji_shusshikin_zandaka numeric(9),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id )
+);
+
+drop table if exists t_skkokairitupoint;
+create table t_skkokairitupoint (
+id serial not null,
+dairiten_point_shukei_info_gaibu_key int,
+tangetsu_dairiten_setsumei_kaishu_kensu numeric(5),
+tangetsu_hombu_setsumei_kensu numeric(5),
+tangetsu_dairiten_manki_kokai_annai_sofu_kensu numeric(5),
+tangetsu_manki_kokai_setsumei_kaishu_ritsu numeric(11, 2),
+ruikei_dairiten_setsumei_kaishu_kensu numeric(5),
+ruikei_hombu_setsumei_kensu numeric(5),
+ruikei_dairiten_manki_kokai_annai_sofu_kensu numeric(5),
+ruikei_manki_kokai_setsumei_kaishu_ritsu numeric(11, 2),
+manki_kokai_setsumei_kaishu_ritsu_point numeric(11, 2),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id )
+);
+
+drop table if exists t_skkokairituwork;
+create table t_skkokairituwork (
+id serial not null,
+kumiaiin_no varchar(8),
+dairiten_cd varchar(30),
+dairiten_name varchar(510),
+hyoka_ym varchar(6),
+kokai_ym char(6),
+moshikomisho_sofu_ymd timestamp,
+dairiten_keiyu_flg char(1),
+hombu_taio_flg char(1),
+keijo_date_time timestamp,
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id )
+);
+
+drop table if exists t_songairitsu_santei_jiko;
+create table t_songairitsu_santei_jiko (
+id serial not null,
+kumiaiin_id int,
+kumiaiin_no char(6),
+kokai_ym char(6),
+santei_taisho_kumiaiin_no char(6),
+keiyaku_no char(9),
+jiko_no char(10),
+kyosai_kbn char(1),
+jiko_no_eda_no numeric(2),
+shimeshori_date_time timestamp,
+jiko_ymd timestamp,
+stop_loss_taisho_flg char(1),
+jian_kanryo_flg char(1),
+santei_kikannai_shiharai_gaku_kei numeric(9),
+santei_kikannai_kaishu_gaku_kei numeric(9),
+shiharai_gaku_gokei numeric(9),
+kaishu_zandaka numeric(9),
+kyosaikin_keijo_gaku numeric(9),
+kurikoshi_gaku numeric(9),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id )
+);
+
+drop table if exists t_songairitsu_santei_kakekin;
+create table t_songairitsu_santei_kakekin (
+id serial not null,
+kumiaiin_id int,
+kumiaiin_no char(6),
+kokai_ym char(6),
+santei_taisho_kumiaiin_no char(6),
+seikyu_ym char(6),
+shimeshori_date_time timestamp,
+zuihansha_daisu numeric(5),
+kakekin_tanka numeric(9),
+togetsu_kakekingaku numeric(9),
+hendogaku numeric(9),
+chosei_gaku numeric(9),
+seikyu_gaku numeric(9),
+nyukin_jokyo char(1),
+nyukin_gaku numeric(9),
+nyukin_ymd timestamp,
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id )
+);
+
+drop table if exists t_songairitsu_santei_tsucho;
+create table t_songairitsu_santei_tsucho (
+id serial not null,
+kumiaiin_id int,
+kumiaiin_no char(6),
+kokai_ym char(6),
+shimeshori_date_time timestamp,
+to_nendo_chosei_kin numeric(9),
+juto_gaku numeric(9),
+kurikoshi_chosei_kin numeric(9),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id )
+);
+
+drop table if exists t_songairitubunbowork;
+create table t_songairitubunbowork (
+id serial not null,
+kumiaiin_no varchar(8),
+dairiten_cd varchar(30),
+dairiten_name varchar(510),
+hyoka_ym varchar(6),
+nyukin_date timestamp,
+nyukin_gaku numeric(9),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id )
+);
+
+drop table if exists t_songairitubunshiwork;
+create table t_songairitubunshiwork (
+id serial not null,
+kumiaiin_no varchar(8),
+dairiten_cd varchar(30),
+dairiten_name varchar(510),
+hyoka_ym varchar(6),
+jiko_no char(10),
+kyosai_kbn char(1),
+jiko_no_eda_no numeric(2),
+keiyaku_no char(9),
+shiharai_ymd timestamp,
+shiharai_kingaku numeric(9),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id )
+);
+
+drop table if exists t_songairitupoint;
+create table t_songairitupoint (
+id serial not null,
+dairiten_point_shukei_info_gaibu_key int,
+tangetsu_shiharai_kyosaikin numeric(9),
+tangetsu_kakekin numeric(9),
+tangetsu_songairitsu numeric(11, 2),
+ruikei_shiharai_kyosaikin_ninenkan numeric(9),
+ruikei_kakekin_ninenkan numeric(9),
+ruikei_songairitsu numeric(11, 2),
+songairitsu_point numeric(11, 2),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id )
+);
+
+drop table if exists t_taio_rireki_eigyo;
+create table t_taio_rireki_eigyo (
+id serial not null,
+kumiaiin_id int,
+bf_kumiaiin_id int,
+kumiaiin_no char(6),
+taio_date_time timestamp,
+taio_kbn char(2),
+dairiten_etsuran_flg char(1),
+taio_naiyo varchar(2000),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id )
+);
+
+drop table if exists t_taio_rireki_eigyo_shusei;
+create table t_taio_rireki_eigyo_shusei (
+id serial not null,
+taio_rireki_shusei_seq int not null,
+taio_rireki_id int,
+kumiaiin_id int,
+bf_kumiaiin_id int,
+kumiaiin_no char(6),
+taio_date_time timestamp,
+taio_kbn char(2),
+dairiten_etsuran_flg char(1),
+taio_naiyo varchar(2000),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id ),
+unique ( taio_rireki_shusei_seq )
+);
+
+drop table if exists t_taio_rireki_soncho;
+create table t_taio_rireki_soncho (
+id serial not null,
+jiko_id int,
+jiko_no char(10),
+kyosai_kbn char(1),
+jiko_no_eda_no numeric(2),
+taio_date_time timestamp,
+taio_saki_name varchar(100),
+taio_saki_tanto_name varchar(100),
+taio_saki_kbn char(2),
+taio_naiyo varchar(2000),
+dairiten_etsuran_flg char(1),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id )
+);
+
+drop table if exists t_taio_rireki_soncho_shusei;
+create table t_taio_rireki_soncho_shusei (
+id serial not null,
+taio_rireki_shusei_seq int not null,
+taio_rireki_id int,
+jiko_id int,
+jiko_no char(10),
+kyosai_kbn char(1),
+jiko_no_eda_no numeric(2),
+taio_date_time timestamp,
+taio_saki_name varchar(100),
+taio_saki_tanto_name varchar(100),
+taio_saki_kbn char(2),
+taio_naiyo varchar(2000),
+dairiten_etsuran_flg char(1),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id ),
+unique ( taio_rireki_shusei_seq )
+);
+
+drop table if exists t_task_kanri;
+create table t_task_kanri (
+id serial not null,
+taio_rireki_kbn char(1) not null,
+taio_rireki_id int not null,
+task_naiyo varchar(2000),
+kigen_date_time timestamp,
+irai_sha_id varchar(8),
+irai_ymd timestamp,
+atesaki_user_id varchar(8),
+atesaki_tanto_gyomu_cd char(1),
+atesaki_jimusho_cd char(1),
+atesaki_user_shonin_kengen_umu char(1),
+atesaki_dairiten_cd char(4),
+taio_sha varchar(8),
+taio_date_time timestamp,
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id ),
+unique ( taio_rireki_kbn, taio_rireki_id )
+);
+
+drop table if exists t_untenshu_hosho_info;
+create table t_untenshu_hosho_info (
+id serial not null,
+kumiaiin_id int,
+kumiaiin_no char(6),
+untenshu_name varchar(100),
+untenshu_name_kana varchar(100),
+sex char(1),
+untenshu_birthday timestamp,
+menkyosho_no varchar(12),
+kensaku_yo_untenshu_name_kana varchar(100),
+start_kbn char(2),
+end_kbn char(2),
+hosho_start_ymd timestamp,
+hosho_end_ymd timestamp,
+genin_ymd timestamp,
+saishu_keijo_date_time timestamp,
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id )
+);
+
+drop table if exists t_untenshu_ido_rireki;
+create table t_untenshu_ido_rireki (
+id serial not null,
+kumiaiin_id int,
+kumiaiin_no char(6),
+untenshu_name varchar(100),
+untenshu_name_kana varchar(100),
+sex char(1),
+untenshu_birthday timestamp,
+menkyosho_no varchar(12),
+ido_kbn char(2),
+tekiyo_ymd timestamp,
+keijo_date_time timestamp,
+keijo_sha_id varchar(8),
+seisa_date_time timestamp,
+seisa_sha_id varchar(8),
+henko_mae_untenshu_name varchar(100),
+henko_mae_untenshu_name_kana varchar(100),
+henko_mae_sex char(1),
+henko_mae_untenshu_birthday timestamp,
+henko_mae_menkyosho_no varchar(12),
+dojitsu_massho_flg char(1),
+teisei_flg char(1),
+web_ido_flg char(1),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id )
+);
+
+drop table if exists t_zuihan_sha_hosho_info;
+create table t_zuihan_sha_hosho_info (
+id serial not null,
+kumiaiin_id int,
+kumiaiin_no char(6),
+toroku_sharyo_no varchar(30),
+toroku_sharyo_no_kana varchar(30),
+shaken_manryo_ymd timestamp,
+kensaku_yo_toroku_sharyo_no_kana varchar(30),
+start_kbn char(2),
+end_kbn char(2),
+irekae_moto_toroku_sharyo_no varchar(30),
+irekae_saki_toroku_sharyo_no varchar(30),
+hosho_start_ymd timestamp,
+hosho_end_ymd timestamp,
+gensha_ymd timestamp,
+saishu_keijo_date_time timestamp,
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id )
+);
+
+drop table if exists t_zuihan_sha_ido_rireki;
+create table t_zuihan_sha_ido_rireki (
+id serial not null,
+kumiaiin_id int,
+kumiaiin_no char(6),
+toroku_sharyo_no varchar(30),
+toroku_sharyo_no_kana varchar(30),
+shaken_manryo_ymd timestamp,
+ido_kbn char(2),
+tekiyo_ymd timestamp,
+keijo_date_time timestamp,
+keijo_sha_id varchar(8),
+seisa_date_time timestamp,
+seisa_sha_id varchar(8),
+henko_mae_toroku_sharyo_no varchar(30),
+henko_mae_toroku_sharyo_no_kana varchar(30),
+henko_mae_shaken_manryo_ymd timestamp,
+irekae_saki_toroku_sharyo_no varchar(30),
+dojitsu_massho_flg char(1),
+teisei_flg char(1),
+web_ido_flg char(1),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id )
+);
+
+drop table if exists w_jiki_tokyu_shisan_kakekin;
+create table w_jiki_tokyu_shisan_kakekin (
+id serial not null,
+user_id varchar(8) not null,
+konkai_jikai_kbn char(1) not null,
+no int not null,
+kumiaiin_no char(6),
+keiyaku_no char(9),
+seikyu_ym char(6),
+kaime numeric(9),
+daisu numeric(6, 1),
+tanka numeric(9),
+togetsu_kakekin numeric(9),
+hendogaku numeric(9),
+chosei_gaku numeric(9),
+seikyu_gaku numeric(9),
+nyukin_gaku numeric(9),
+yosoku_flg char(1),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id ),
+unique ( user_id, konkai_jikai_kbn, no )
+);
+
+drop table if exists w_jiki_tokyu_shisan_kyosaikin;
+create table w_jiki_tokyu_shisan_kyosaikin (
+id serial not null,
+user_id varchar(8) not null,
+konkai_jikai_kbn char(1) not null,
+no int not null,
+kumiaiin_no char(6),
+keiyaku_no char(9),
+jiko_no char(13),
+jiko_date_time timestamp,
+santei_hoho varchar(5),
+kyosai_kbn char(1),
+shiharai_kyosaikin numeric(9),
+bikin_zandaka numeric(9),
+stop_loss_taisho_flg char(1),
+shiharai_taisho_flg char(1),
+kajitu_shiharai_ari_flg char(1),
+jian_kanryo_flg char(1),
+kurikoshi_gaku numeric(9),
+toroku_user_id varchar(8),
+toroku_date_time timestamp,
+henko_user_id varchar(8),
+henko_date_time timestamp,
+sakujo_flg char(1),
+primary key ( id ),
+unique ( user_id, konkai_jikai_kbn, no )
+);
+
+
